@@ -29,6 +29,8 @@ export const NAV_LINKS: Link[] = [
 ]
 
 export const SOCIAL_LINKS: Link[] = [
-  { href: 'https://github.com/jktrn', label: 'GitHub' },
-  { href: 'https://twitter.com/enscry', label: 'Twitter' },
+  { href: 'https://github.com/1dexx1', label: 'GitHub' },
+  { href: 'https://discord.com/users/999589862158114848', label: 'Discord' },
+  { href: 'https://boosty.to/1dexx1', label: 'Boosty' },
+  { href: 'https://steamcommunity.com/id/1dexx1/', label: 'Steam' },
 ]
