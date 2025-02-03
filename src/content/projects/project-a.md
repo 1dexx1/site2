@@ -1,7 +1,7 @@
 ---
-name: 'Project A'
-description: 'This is an example project description! You should replace this with a description of your own project.'
-tags: ['Framework A', 'Library B', 'Tool C', 'Resource D']
+name: 'Bakery Madness'
+description: '"игра" от моего друга, разработка ведётся 2,5 года, с 2023. моя участь = бета тестер.'
+tags: ['pizza tower']
 image: '../../../public/static/1200x630.png'
-link: 'https://example.com'
+link: 'https://t.me/+yGaaoV5HBBsyZTMy'
 ---
