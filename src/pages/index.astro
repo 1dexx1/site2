@@ -33,14 +33,12 @@ const blog = (await getCollection('blog'))
         </CardHeader>
         <CardContent>
           <p class="mb-2 text-sm text-muted-foreground">
-            это мой первый опыт в создании таких сайтов, я очень удивлён что люди могут создать такое. а, забыл
-            мне 13 лет, я делаю что-то на GLua, пробовал просто луа, и luau, живу в украине, ну и всё
           </p>
         </CardContent>
       </Card>
     </section>
     <section class="flex flex-col gap-y-4">
-      <h2 class="text-2xl font-bold">Latest posts</h2>
+      <h2 class="text-2xl font-bold">Последние посты</h2>
       <ul class="not-prose flex flex-col gap-y-4">
         {
           blog.map((post) => (

@@ -54,15 +54,15 @@ export function ModeToggle() {
       <DropdownMenuContent align="end" className="bg-background">
         <DropdownMenuItem onClick={() => setThemeState('theme-light')}>
           <Sun className="mr-2 size-4" />
-          <span>Light</span>
+          <span>Светлая</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setThemeState('dark')}>
           <Moon className="mr-2 size-4" />
-          <span>Dark</span>
+          <span>Темная</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setThemeState('system')}>
           <Laptop className="mr-2 size-4" />
-          <span>System</span>
+          <span>Системная</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
