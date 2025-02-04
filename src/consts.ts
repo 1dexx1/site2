@@ -25,12 +25,10 @@ export const SITE: Site = {
 export const NAV_LINKS: Link[] = [
   { href: '/blog', label: 'блог' },
   { href: '/about', label: 'о себе' },
+  { href: '/authors', label: 'авторы' },
   { href: '/tags', label: 'теги' },
 ]
 
 export const SOCIAL_LINKS: Link[] = [
-  { href: 'https://github.com/1dexx1', label: 'GitHub' },
-  { href: 'https://discord.com/users/999589862158114848', label: 'Discord' },
-  { href: 'https://boosty.to/1dexx1', label: 'Boosty' },
-  { href: 'https://steamcommunity.com/id/1dexx1/', label: 'Steam' },
+
 ]
