@@ -9,7 +9,7 @@ export async function parseAuthors(authors: string[]) {
       return {
         id,
         name: author?.data?.name || id,
-        avatar: author?.data?.avatar || '/static/logo.jpg',
+        avatar: author?.data?.avatar || '/static/logo.png',
         isRegistered: !!author,
       }
     } catch (error) {
@@ -17,7 +17,7 @@ export async function parseAuthors(authors: string[]) {
       return {
         id,
         name: id,
-        avatar: '/static/logo.jpg',
+        avatar: '/static/logo.png',
         isRegistered: false,
       }
     }
