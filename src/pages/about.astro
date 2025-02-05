@@ -2,12 +2,12 @@
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import Container from '@/components/Container.astro'
 import Link from '@/components/Link.astro'
-import ProjectCard from '@/components/ProjectCard.astro'
+import MyProjectCard from '@/components/MyProjectCard.astro'
 import { SITE } from '@/consts'
 import Layout from '@/layouts/Layout.astro'
 import { getCollection } from 'astro:content'
 
-const projects = await getCollection('projects')
+const myprojects = await getCollection('myprojects')
 ---
 
 <Layout title="о себе" description={SITE.DESCRIPTION}>
@@ -22,9 +22,9 @@ const projects = await getCollection('projects')
           </p>
         </div>
 
-        <h2 class="mb-4 text-2xl font-semibold">проекты</h2>
+        <h2 class="mb-4 text-2xl font-semibold">МОИ проекты</h2>
         <div class="flex flex-col gap-4">
-          {projects.map((project) => <ProjectCard project={project} />)}
+          {myprojects.map((myprojects) => <MyProjectCard myproject={myprojects} />)}
         </div>
       </div>
     </section>

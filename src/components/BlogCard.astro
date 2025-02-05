@@ -2,7 +2,7 @@
 import AvatarComponent from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import { parseAuthors } from '@/lib/server-utils'
+import { parseAuthors, parseMembers } from '@/lib/server-utils'
 import { formatDate, readingTime } from '@/lib/utils'
 import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
@@ -19,6 +19,7 @@ const { entry } = Astro.props as {
 const formattedDate = formatDate(entry.data.date)
 const readTime = readingTime(entry.body!)
 const authors = await parseAuthors(entry.data.authors ?? [])
+const members = await parseMembers(entry.data.members ?? [])
 ---
 
 <div
@@ -54,6 +55,7 @@ const authors = await parseAuthors(entry.data.authors ?? [])
         {
           authors.length > 0 && (
             <>
+            Автор(ы):
               {authors.map((author) => (
                 <div class="flex items-center gap-x-1.5">
                   <AvatarComponent
@@ -64,6 +66,27 @@ const authors = await parseAuthors(entry.data.authors ?? [])
                     className="size-5 rounded-full"
                   />
                   <span>{author.name}</span>
+                </div>
+              ))}
+              <Separator orientation="vertical" className="h-4" />
+            </>
+          )
+        }
+        
+        {
+          members.length > 0 && (
+            <>
+              Учасник(и):
+              {members.map((members) => (
+                <div class="flex items-center gap-x-1.5">
+                  <AvatarComponent
+                    client:load
+                    src={members.avatar}
+                    alt={members.name}
+                    fallback={members.name[0]}
+                    className="size-5 rounded-full"
+                  />
+                  <span>{members.name}</span>
                 </div>
               ))}
               <Separator orientation="vertical" className="h-4" />

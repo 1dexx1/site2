@@ -1,0 +1,65 @@
+---
+import MemberCard from '@/components/MemberCard.astro'
+import BlogCard from '@/components/BlogCard.astro'
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Container from '@/components/Container.astro'
+import Layout from '@/layouts/Layout.astro'
+import { type CollectionEntry, getCollection } from 'astro:content'
+
+export async function getStaticPaths() {
+  const member = await getCollection('members')
+  return member.map((member) => ({
+    params: { id: member.id },
+    props: { member },
+  }))
+}
+
+type Props = {
+  member: CollectionEntry<'members'>
+}
+
+const { member } = Astro.props
+
+const allPosts = await getCollection('blog')
+const memberPosts = allPosts
+  .filter((post) => {
+    return post.data.members && post.data.members.includes(member.id)
+  })
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+---
+
+<Layout
+  title={`${member.data.name} (учасники)`}
+  description={member.data.bio || `Profile of ${member.data.name}.`}
+>
+  <Container class="flex flex-col gap-y-6">
+    <Breadcrumbs
+      items={[
+        { href: '/members', label: 'учасники', icon: 'lucide:users' },
+        { label: member.data.name, icon: 'lucide:user' },
+      ]}
+    />
+
+    <section>
+      <MemberCard member={member} linkDisabled />
+    </section>
+    <section class="flex flex-col gap-y-4">
+      <h2 class="text-2xl font-semibold">посты с участием {member.data.name}</h2>
+      {
+        memberPosts.length > 0 ? (
+          <ul class="not-prose flex flex-col gap-4">
+            {memberPosts.map((post) => (
+              <li>
+                <BlogCard entry={post} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="text-muted-foreground">
+            нет постов с этим пользователем.
+          </p>
+        )
+      }
+    </section>
+  </Container>
+</Layout>

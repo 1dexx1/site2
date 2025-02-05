@@ -1,0 +1,28 @@
+---
+import MemberCard from '@/components/MemberCard.astro'
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Container from '@/components/Container.astro'
+import Layout from '@/layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+const members = await getCollection('members')
+---
+
+<Layout title="учасники" description="список учасников.">
+  <Container class="flex flex-col gap-y-6">
+    <Breadcrumbs items={[{ label: 'учасники', icon: 'lucide:users' }]} />
+    {
+      members.length > 0 ? (
+        <ul class="not-prose flex flex-col gap-4">
+          {members.map((member) => (
+            <li>
+              <MemberCard member={member} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="text-center text-muted-foreground">не найдено авторов.</p>
+      )
+    }
+  </Container>
+</Layout>
