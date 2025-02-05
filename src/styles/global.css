@@ -55,12 +55,12 @@
     --ring: 0 0% 83.1%;
   }
 
-  *,
-  *::before,
-  *::after {
-    @apply border-border;
-  }
-
+*,
+   *::before,
+   *::after {
+     border: none;
+   }
+  
   html {
     color-scheme: light;
     @apply bg-background text-foreground;
