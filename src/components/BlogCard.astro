@@ -43,58 +43,61 @@ const members = await parseMembers(entry.data.members ?? [])
       )
     }
     <div class="flex-grow">
-      <h3 class="mb-1 text-lg font-semibold">
+      <h3 class="text-lg font-semibold">
         {entry.data.title}
       </h3>
-      <p class="mb-2 text-sm text-muted-foreground">
+      <p class="mb-1 text-sm text-muted-foreground">
         {entry.data.description}
       </p>
       <div
         class="mb-2 flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground"
       >
+      
         {
           authors.length > 0 && (
             <>
-            Автор(ы):
+              <div class="w-full"></div>
+              Автор(ы):
               {authors.map((author) => (
-                <div class="flex items-center gap-x-1.5">
-                  <AvatarComponent
-                    client:load
-                    src={author.avatar}
-                    alt={author.name}
-                    fallback={author.name[0]}
-                    className="size-5 rounded-full"
-                  />
-                  <span>{author.name}</span>
-                </div>
+          <div class="flex items-center gap-x-1.5">
+            <AvatarComponent
+              client:load
+              src={author.avatar}
+              alt={author.name}
+              fallback={author.name[0]}
+              className="size-5 rounded-full"
+            />
+            <span>{author.name}</span>
+          </div>
               ))}
-              <Separator orientation="vertical" className="h-4" />
             </>
           )
         }
-        
+
+      
         {
           members.length > 0 && (
             <>
+              <div class="w-full mb-1"></div>
               Учасник(и):
               {members.map((members) => (
-                <div class="flex items-center gap-x-1.5">
-                  <AvatarComponent
-                    client:load
-                    src={members.avatar}
-                    alt={members.name}
-                    fallback={members.name[0]}
-                    className="size-5 rounded-full"
-                  />
-                  <span>{members.name}</span>
-                </div>
+          <div class="flex items-center gap-x-1.5">
+            <AvatarComponent
+              client:load
+              src={members.avatar}
+              alt={members.name}
+              fallback={members.name[0]}
+              className="size-5 rounded-full"
+            />
+            <span>{members.name}</span>
+          </div>
               ))}
-              <Separator orientation="vertical" className="h-4" />
             </>
           )
         }
+        <div class="w-full mb-1"></div>
         <span>{formattedDate}</span>
-        <Separator orientation="vertical" className="h-4" />
+        <div class="w-full mb-1"></div>
         <span>{readTime}</span>
       </div>
       {
