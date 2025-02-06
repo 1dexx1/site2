@@ -34,7 +34,6 @@
     --additive-foreground: 0 0% 9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
   }
   .dark {
@@ -52,14 +51,7 @@
     --additive-foreground: 0 0% 9%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
-  }
-
-  *,
-  *::before,
-  *::after {
-    @apply border-border;
   }
 
   html {
@@ -116,7 +108,7 @@
 
       /* Code block titles */
       [data-rehype-pretty-code-title] {
-        @apply break-words rounded-t-xl border-x border-t px-4 py-2 text-sm font-medium text-foreground;
+        @apply break-words rounded-t-xl px-4 py-2 text-sm font-medium text-foreground;
 
         /* Remove top margin from code block if a title is present */
         & + pre {
@@ -134,12 +126,12 @@
       }
 
       pre::-webkit-scrollbar-thumb {
-        @apply rounded-full bg-border bg-clip-padding p-px;
+        @apply rounded-full bg-clip-padding p-px;
       }
 
       /* Code block styles */
       pre {
-        @apply static max-h-[600px] overflow-auto rounded-xl border bg-secondary/20 py-4 text-sm leading-loose;
+        @apply static max-h-[600px] overflow-auto rounded-xl bg-secondary/20 py-4 text-sm leading-loose;
 
         /* Code block content */
         > code {
