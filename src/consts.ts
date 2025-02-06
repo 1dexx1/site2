@@ -13,9 +13,9 @@ export type Link = {
 }
 
 export const SITE: Site = {
-  TITLE: 'dexx b1o',
+  TITLE: 'polxr',
   DESCRIPTION:
-    'тута моя биография вся.',
+    'не ебу что писать',
   EMAIL: '',
   NUM_POSTS_ON_HOMEPAGE: 2,
   POSTS_PER_PAGE: 5,
