@@ -2,5 +2,5 @@
 name: 'полярити'
 pronouns: 'он/его'
 avatar: 'https://cdn.discordapp.com/avatars/999589862158114848/1090dfff77cba9c19ddd0ebe0409ed5d.webp?size=1024'
-bio: 'belender(0 целых хуй десятых), gelua(средне), lua(мало), pythn(print("hello world)), c++(std::cout), js(consolelog), и ещё public static void main(String[] args)'
+bio: 'belender(0 целых хуй десятых), gelua(средне), lua(мало), pythn(print("hello world)), c++(std::cout), js(consolelog), public static void main(String[] args)'
 ---
