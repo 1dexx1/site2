@@ -1,5 +1,4 @@
 ---
-// filepath: /C:/Users/dexx/Desktop/попка/site2en/src/components/PostNavigation.astro
 import Link from '@/components/Link.astro'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -25,9 +24,9 @@ const { prevPost, nextPost } = Astro.props
       />
     </div>
     <div class="flex flex-col items-start overflow-hidden">
-      <span class="text-left text-xs text-muted-foreground">next post</span>
+      <span class="text-left text-xs text-muted-foreground">Следующий пост</span>
       <span class="w-full truncate text-left text-sm"
-        >{nextPost?.data.title || 'last post!'}</span
+        >{nextPost?.data.title || 'Последний пост!'}</span
       >
     </div>
   </Link>
@@ -41,9 +40,11 @@ const { prevPost, nextPost } = Astro.props
     aria-disabled={!prevPost}
   >
     <div class="flex flex-col items-end overflow-hidden">
-      <span class="text-right text-xs text-muted-foreground">previous post</span>
+      <span class="text-right text-xs text-muted-foreground">Предыдущий пост</span
+      >
       <span class="w-full truncate text-right text-sm"
-        >{prevPost?.data.title || 'last post!'}</span>
+        >{prevPost?.data.title || 'Последний пост!'}</span
+      >
     </div>
     <div class="ml-2 flex-shrink-0">
       <Icon

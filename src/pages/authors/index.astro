@@ -8,9 +8,9 @@ import { getCollection } from 'astro:content'
 const authors = await getCollection('authors')
 ---
 
-<Layout title="authors" description="list of authors.">
+<Layout title="авторы" description="список авторов.">
   <Container class="flex flex-col gap-y-6">
-    <Breadcrumbs items={[{ label: 'authors', icon: 'lucide:users' }]} />
+    <Breadcrumbs items={[{ label: 'авторы', icon: 'lucide:users' }]} />
     {
       authors.length > 0 ? (
         <ul class="not-prose flex flex-col gap-4">
@@ -21,7 +21,7 @@ const authors = await getCollection('authors')
           ))}
         </ul>
       ) : (
-        <p class="text-center text-muted-foreground">no authors found.</p>
+        <p class="text-center text-muted-foreground">не найдено авторов.</p>
       )
     }
   </Container>

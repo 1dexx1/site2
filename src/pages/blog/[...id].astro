@@ -66,7 +66,7 @@ const members = await parseMembers(post.data.members ?? [])
   >
     <Breadcrumbs
       items={[
-        { href: '/blog', label: 'blog', icon: 'lucide:archive' },
+        { href: '/blog', label: 'блог', icon: 'lucide:archive' },
         { label: post.data.title, icon: 'lucide:file-text' },
       ]}
       class="col-start-2"
@@ -102,7 +102,7 @@ const members = await parseMembers(post.data.members ?? [])
                 <div class="flex items-center gap-x-2">
                   {authors.map((author) => (
                     <div class="flex items-center gap-x-1.5">
-                      author(s):
+                      Автор:
                       <Image
                         src={author.avatar}
                         alt={author.name}
@@ -127,7 +127,7 @@ const members = await parseMembers(post.data.members ?? [])
                   ))}
                 </div>
                 <div class="flex items-center gap-x-2">
-                  member(s):
+                  Учасник(и):
                   {members.map((member) => (
                     <div class="flex items-center gap-x-1.5">
                       <Image
@@ -176,7 +176,7 @@ const members = await parseMembers(post.data.members ?? [])
               ))
             ) : (
               <span class="text-sm text-muted-foreground">
-                no tags found
+                Нету тегов
               </span>
             )
           }

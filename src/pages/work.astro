@@ -10,10 +10,10 @@ import { getCollection } from 'astro:content'
 const projects = await getCollection('projects')
 ---
 
-<Layout title="projects" description={SITE.DESCRIPTION}>
+<Layout title="проекты" description={SITE.DESCRIPTION}>
   <Container class="flex flex-col gap-y-6">
-    <Breadcrumbs items={[{ label: 'projects', icon: 'lucide:info' }]} />
-        <h2 class="mb-4 text-2xl font-semibold">projects</h2>
+    <Breadcrumbs items={[{ label: 'проекты', icon: 'lucide:info' }]} />
+        <h2 class="mb-4 text-2xl font-semibold">проекты</h2>
         <div class="flex flex-col gap-4">
           {projects.map((project) => <ProjectCard project={project} />)}
         </div>

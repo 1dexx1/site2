@@ -29,13 +29,13 @@ const memberPosts = allPosts
 ---
 
 <Layout
-  title={`${member.data.name} (members)`}
+  title={`${member.data.name} (учасники)`}
   description={member.data.bio || `Profile of ${member.data.name}.`}
 >
   <Container class="flex flex-col gap-y-6">
     <Breadcrumbs
       items={[
-        { href: '/members', label: 'members', icon: 'lucide:users' },
+        { href: '/members', label: 'учасники', icon: 'lucide:users' },
         { label: member.data.name, icon: 'lucide:user' },
       ]}
     />
@@ -44,7 +44,7 @@ const memberPosts = allPosts
       <MemberCard member={member} linkDisabled />
     </section>
     <section class="flex flex-col gap-y-4">
-      <h2 class="text-2xl font-semibold">posts featuring {member.data.name}</h2>
+      <h2 class="text-2xl font-semibold">посты с участием {member.data.name}</h2>
       {
         memberPosts.length > 0 ? (
           <ul class="not-prose flex flex-col gap-4">
@@ -56,7 +56,7 @@ const memberPosts = allPosts
           </ul>
         ) : (
           <p class="text-muted-foreground">
-            no posts featuring this member.
+            нет постов с этим пользователем.
           </p>
         )
       }

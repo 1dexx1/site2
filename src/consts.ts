@@ -15,7 +15,7 @@ export type Link = {
 export const SITE: Site = {
   TITLE: 'polxr',
   DESCRIPTION:
-    'portfolio',
+    'не ебу что писать',
   EMAIL: '',
   NUM_POSTS_ON_HOMEPAGE: 2,
   POSTS_PER_PAGE: 5,
@@ -23,13 +23,13 @@ export const SITE: Site = {
 }
 
 export const NAV_LINKS: Link[] = [
-  { href: '/', label: 'home'},
-  { href: '/about', label: 'about' },
-  { href: '/blog', label: 'blog' },
-  { href: '/tags', label: 'tags' },
-  { href: '/work', label: 'project'},
-  { href: '/authors', label: 'authors' },
-  { href: '/members', label: 'members'},
+  { href: '/', label: 'главная'},
+  { href: '/about', label: 'о себе' },
+  { href: '/blog', label: 'блог' },
+  { href: '/tags', label: 'теги' },
+  { href: '/work', label: 'проекты'},
+  { href: '/authors', label: 'авторы' },
+  { href: '/members', label: 'учасники'},
 ]
 
 export const SOCIAL_LINKS: Link[] = [

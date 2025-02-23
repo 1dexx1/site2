@@ -10,21 +10,21 @@ import { getCollection } from 'astro:content'
 const myprojects = await getCollection('myprojects')
 ---
 
-<Layout title="about me" description={SITE.DESCRIPTION}>
+<Layout title="о себе" description={SITE.DESCRIPTION}>
   <Container class="flex flex-col gap-y-6">
-    <Breadcrumbs items={[{ label: 'about me', icon: 'lucide:info' }]} />
+    <Breadcrumbs items={[{ label: 'о себе', icon: 'lucide:info' }]} />
 
     <section>
       <div class="min-w-full">
         <div class="prose prose-neutral mb-8 dark:prose-invert">
           <p>
-            13 y.o., doing something in glua, tried plain lua, and luau
+            мне 13 лет, я делаю что-то на GLua, пробовал просто луа, и luau, живу в украине
           </p>
           <p>
-            10 nicknames, so what (polar/polarity/pulsar/puls/polxr/polxrity/pulsrr/pls/pol/dexx)
+            да, у меня 10 ников, и че(polar/polarity/pulsar/puls/polxr/polxrity/pulsrr/pls/pol/dexx)
           </p>
         </div>
-        <h2 class="mb-4 text-2xl font-semibold">my projects</h2>
+        <h2 class="mb-4 text-2xl font-semibold">МОИ проекты</h2>
         <div class="flex flex-col gap-4">
           {myprojects.map((myprojects) => <MyProjectCard myproject={myprojects} />)}
         </div>

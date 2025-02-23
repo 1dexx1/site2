@@ -1,5 +1,4 @@
 ---
-// filepath: /C:/Users/dexx/Desktop/попка/site2en/src/pages/tags/[...id].astro
 import BlogCard from '@/components/BlogCard.astro'
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import Container from '@/components/Container.astro'
@@ -34,18 +33,18 @@ export async function getStaticPaths() {
 ---
 
 <Layout
-  title={`posts tagged with "${tag}"`}
-  description={`posts tagged with ${tag}.`}
+  title={`посты с тегом "${tag}"`}
+  description={`посты с тегом ${tag}.`}
 >
   <Container class="flex flex-col gap-y-6">
     <Breadcrumbs
       items={[
-        { href: '/tags', label: 'tags', icon: 'lucide:tags' },
+        { href: '/tags', label: 'Теги', icon: 'lucide:tags' },
         { label: tag, icon: 'lucide:tag' },
       ]}
     />
     <div class="flex flex-wrap items-center gap-2">
-      <h1 class="text-3xl font-semibold">posts tagged with</h1>
+      <h1 class="text-3xl font-semibold">посты с тегом</h1>
       <span
         class="flex items-center gap-x-1 rounded-full bg-secondary px-4 py-2 text-2xl font-semibold"
       >
