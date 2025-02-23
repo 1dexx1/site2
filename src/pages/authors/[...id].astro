@@ -29,13 +29,13 @@ const authorPosts = allPosts
 ---
 
 <Layout
-  title={`${author.data.name} (автор)`}
+  title={`${author.data.name} (author)`}
   description={author.data.bio || `Profile of ${author.data.name}.`}
 >
   <Container class="flex flex-col gap-y-6">
     <Breadcrumbs
       items={[
-        { href: '/authors', label: 'авторы', icon: 'lucide:users' },
+        { href: '/authors', label: 'authors', icon: 'lucide:users' },
         { label: author.data.name, icon: 'lucide:user' },
       ]}
     />
@@ -44,7 +44,7 @@ const authorPosts = allPosts
       <AuthorCard author={author} linkDisabled />
     </section>
     <section class="flex flex-col gap-y-4">
-      <h2 class="text-2xl font-semibold">посты от {author.data.name}</h2>
+      <h2 class="text-2xl font-semibold">posts by {author.data.name}</h2>
       {
         authorPosts.length > 0 ? (
           <ul class="not-prose flex flex-col gap-4">
@@ -56,7 +56,7 @@ const authorPosts = allPosts
           </ul>
         ) : (
           <p class="text-muted-foreground">
-            нет постов от этого автора.
+            no posts from this author.
           </p>
         )
       }

@@ -20,14 +20,14 @@ const blog = (await getCollection('blog'))
   .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE)
 ---
 
-<Layout title="главная" description={SITE.DESCRIPTION}>
+<Layout title="home" description={SITE.DESCRIPTION}>
   <Container class="flex flex-col gap-y-6">
     <section>
       <Card>
         <CardHeader>
-          <CardTitle className="text-3xl">привет</CardTitle>
+          <CardTitle className="text-3xl">hello</CardTitle>
           <CardDescription
-            >&bull; <span class="font-semibold">я еблан, делаю хуйню на луа в гмоде.</span
+            >&bull; <span class="font-semibold">stupid ass, doing bullshit in lua in gMod.</span
             ></CardDescription
           >
         </CardHeader>
@@ -38,7 +38,7 @@ const blog = (await getCollection('blog'))
       </Card>
     </section>
     <section class="flex flex-col gap-y-4">
-      <h2 class="text-2xl font-bold">Последние посты</h2>
+      <h2 class="text-2xl font-bold">Latest posts</h2>
       <ul class="not-prose flex flex-col gap-y-4">
         {
           blog.map((post) => (
@@ -53,7 +53,7 @@ const blog = (await getCollection('blog'))
           href="/blog"
           class={buttonVariants({ variant: 'ghost' }) + ' group'}
         >
-          посмотреть все посты <span
+          view all posts <span
             class="ml-1.5 transition-transform group-hover:translate-x-1"
             >&rarr;</span
           >
