@@ -2,12 +2,8 @@
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import Container from '@/components/Container.astro'
 import Link from '@/components/Link.astro'
-import MyProjectCard from '@/components/MyProjectCard.astro'
 import { SITE } from '@/consts'
 import Layout from '@/layouts/Layout.astro'
-import { getCollection } from 'astro:content'
-
-const myprojects = await getCollection('myprojects')
 ---
 
 <Layout title="ссылки" description={SITE.DESCRIPTION}>
