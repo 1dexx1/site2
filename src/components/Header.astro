@@ -9,34 +9,33 @@ import logo from '../../public/static/photo.png'
 ---
 
 <header
-  class="sticky top-0 z-10 bg-background/50 backdrop-blur-md"
+  class="sticky top-0 z-10 bg-background/50 backdrop-blur-md rounded-xl"
   transition:persist
 >
-  <Container>
-    <div class="flex flex-wrap items-center justify-between gap-4 py-4">
-      <Link
-        href="/"
-        class="flex flex-shrink-0 items-center gap-2 text-xl font-semibold transition-colors duration-300 hover:text-primary"
-      >
-        <Image src={logo} alt="Logo" class="size-8" />
-        {SITE.TITLE}
-      </Link>
-      <div class="flex items-center gap-2 md:gap-4">
-        <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex">
-          {
-            NAV_LINKS.map((item) => (
-              <Link
-                href={item.href}
-                class="capitalize text-foreground/60 transition-colors hover:text-foreground/80"
-              >
-                {item.label}
-              </Link>
-            ))
-          }
-        </nav>
-        <MobileMenu client:load transition:persist />
-        <ModeToggle client:load transition:persist />
-      </div>
+<div class="col-start-1 col-span-7 md:col-span-2 md:row-span-4 md:row-start-4 bg-[#242424] rounded-xl">
+<Container>
+  <div class="flex flex-wrap items-center justify-between gap-4 py-4">
+    <Link
+      href="/"
+      class="flex flex-shrink-0 items-center gap-2 text-xl font-semibold transition-colors duration-300 hover:text-primary"
+    >
+      <Image src={logo} alt="Logo" class="size-8" />
+      {SITE.TITLE}
+    </Link>
+    <div class="flex items-center gap-2 md:gap-4">
+      <nav class="hidden items-center gap-4 text-sm sm:gap-6 md:flex">
+        {
+          NAV_LINKS.map((item) => (
+            <Link
+              href={item.href}
+              class="capitalize text-foreground/60 transition-colors hover:text-foreground/80"
+            >
+              {item.label}
+            </Link>
+          ))
+        }
+      </nav>
+      <MobileMenu client:load transition:persist />
     </div>
-  </Container>
-</header>
+  </div>
+</Container>

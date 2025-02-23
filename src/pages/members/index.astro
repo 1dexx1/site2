@@ -7,7 +7,7 @@ import { getCollection } from 'astro:content'
 
 const members = await getCollection('members')
 ---
-
+<div class="col-start-1 col-span-7 md:col-span-2 md:row-span-4 md:row-start-4 bg-[#171717]  p-5">
 <Layout title="учасники" description="список учасников.">
   <Container class="flex flex-col gap-y-6">
     <Breadcrumbs items={[{ label: 'учасники', icon: 'lucide:users' }]} />
