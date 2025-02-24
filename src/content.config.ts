@@ -22,11 +22,6 @@ const blog = defineCollection({
       tags: z.array(z.string()).optional(),
       authors: z.array(z.string()).optional().optional(),
       members: z.array(z.string()).optional().optional(),
-      password: z.string().optional(),
-      encrypt: z.object({
-        description: z.string().default(d.encrypt.description),
-        placeholder: z.string().default(d.encrypt.placeholder),
-      }).default({}),
       draft: z.boolean().optional(),
     }),
 })
