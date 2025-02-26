@@ -14,7 +14,7 @@ const authors = await getCollection('authors')
     {
       authors.length > 0 ? (
         <ul class="not-prose flex flex-col gap-4">
-          {authors.filter(post => !post.data.draft).map((author) => (
+          {authors.map((author) => (
             <li>
               <AuthorCard author={author} />
             </li>
