@@ -13,20 +13,51 @@ import {
 import { SITE } from '@/consts'
 import Layout from '@/layouts/Layout.astro'
 import { getCollection } from 'astro:content'
-
 const blog = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE)
 ---
 <div class="col-start-1 col-span-7 md:col-span-2 md:row-span-4 md:row-start-4 bg-[#171717]  p-5">
-<Layout title="..." description={SITE.DESCRIPTION}>
-
+<Layout title="главная" description={SITE.DESCRIPTION}>
   <Container class="flex flex-col gap-y-6">
-    <h1>привет<h1/>
-<br>
-с самого начала, как только я начал разрабатывать этот блог, у меня было много вещей, которые нужно было тут сделать. Я сделал много чего, от кастомных страниц, до переписывания блога. И спустя сотни коммитов, я закрываю сайт. на этом сайте больне НЕ будут выходить обновления, если я захочу что-то сделать, мой гитхаб 1dexx1, все что я буду делать новое - СКОРЕЕ ВСЕГО будет там.
-<br>
-Спасибо! (исходный код сайта НЕ будет открыт)
+    <section>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-3xl">привет</CardTitle>
+          <CardDescription
+            >&bull; <span class="font-semibold">я еблан, делаю хуйню на луа в гмоде.</span
+            ></CardDescription
+          >
+        </CardHeader>
+        <CardContent>
+          <p class="mb-2 text-sm text-muted-foreground">
+          </p>
+        </CardContent>
+      </Card>
+    </section>
+    <section class="flex flex-col gap-y-4">
+      <h2 class="text-2xl font-bold">Последние посты</h2>
+      <ul class="not-prose flex flex-col gap-y-4">
+        {
+          blog.map((post) => (
+            <li>
+              <BlogCard entry={post} />
+            </li>
+          ))
+        }
+      </ul>
+      <div class="flex justify-center">
+        <Link
+          href="/blog"
+          class={buttonVariants({ variant: 'ghost' }) + ' group'}
+        >
+          посмотреть все посты <span
+            class="ml-1.5 transition-transform group-hover:translate-x-1"
+            >&rarr;</span
+          >
+        </Link>
+      </div>
+    </section>
   </Container>
 </Layout>
