@@ -31,7 +31,6 @@ export const NAV_LINKS: Link[] = [
   { href: '/authors', label: 'авторы' },
   { href: '/members', label: 'учасники'},
   { href: '/links', label: 'ссылки'},
-  { href: '/dni', label: 'dni'},
 ]
 
 export const SOCIAL_LINKS: Link[] = [
