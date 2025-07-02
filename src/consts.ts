@@ -1,28 +1,18 @@
-export type Site = {
-  TITLE: string
-  DESCRIPTION: string
-  EMAIL: string
-  NUM_POSTS_ON_HOMEPAGE: number
-  POSTS_PER_PAGE: number
-  SITEURL: string
-}
-
-export type Link = {
-  href: string
-  label: string
-}
+import type { IconMap, SocialLink, Site } from '@/types'
 
 export const SITE: Site = {
-  TITLE: 'polxr',
-  DESCRIPTION:
-    'не ебу что писать',
-  EMAIL: '',
-  NUM_POSTS_ON_HOMEPAGE: 2,
-  POSTS_PER_PAGE: 5,
-  SITEURL: 'https://site2-weld-eight.vercel.app',
+  title: 'polxr',
+  description:
+    'my website yay',
+  href: 'https://polxxrity.xyz',
+  author: 'polaar',
+  member: "",
+  locale: 'en-US',
+  featuredPostCount: 2,
+  postsPerPage: 3,
 }
 
-export const NAV_LINKS: Link[] = [
+export const NAV_LINKS: SocialLink[] = [
   { href: '/', label: 'главная'},
   { href: '/about', label: 'о себе' },
   { href: '/blog', label: 'блог' },
@@ -30,9 +20,22 @@ export const NAV_LINKS: Link[] = [
   { href: '/work', label: 'проекты'},
   { href: '/authors', label: 'авторы' },
   { href: '/members', label: 'учасники'},
-  { href: '/links', label: 'ссылки'},
+  // { href: '/links', label: 'ссылки'},
 ]
 
-export const SOCIAL_LINKS: Link[] = [
-
+export const SOCIAL_LINKS: SocialLink[] = [
+  {
+    href: 'https://github.com/personwholovesflowers',
+    label: 'GitHub',
+  },
 ]
+
+export const ICON_MAP: IconMap = {
+  Website: 'lucide:globe',
+  GitHub: 'lucide:github',
+  LinkedIn: 'lucide:linkedin',
+  Twitter: 'lucide:twitter',
+  Email: 'lucide:mail',
+  RSS: 'lucide:rss',
+  Discord: 'lucide:circle-user',
+}

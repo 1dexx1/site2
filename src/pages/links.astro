@@ -1,32 +1,68 @@
 ---
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
-import Container from '@/components/Container.astro'
 import Link from '@/components/Link.astro'
-import { SITE } from '@/consts'
+import PageHead from '@/components/PageHead.astro'
 import Layout from '@/layouts/Layout.astro'
 ---
 
-<div class="col-start-1 col-span-7 md:col-span-2 md:row-span-4 md:row-start-4 bg-[#171717]  p-5">
-<Layout title="ссылки" description={SITE.DESCRIPTION}>
-  <Container class="flex flex-col gap-y-6">
-    <Breadcrumbs items={[{ label: 'ссылки', icon: 'lucide:info' }]} />
-
-    <section>
-      <div class="min-w-full">
-        <div class="prose prose-neutral mb-8 dark:prose-invert">
-          <p>
-            все ссылки тута
-            <h1>dexx</h1>
-            <h2>
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title="Home" />
+  <section>
+    <div class="rounded-lg border">
+      <div class="p-6 pt-0">
+        <p class="text-muted-foreground text-sm">
+          <br>
+          все ссылки тута
+          <h1>dexx:</h1>
+          <h2>
+          <Link
+            href={'https://discord.com/users/999589862158114848'}
+            class="text-foreground"
+            underline
+            external
+          > 
+          discord
+          </Link></h2>
+          <h2>
+          <Link
+            href={'https://github.com/1dexx1'}
+            class="text-foreground"
+            underline
+            external
+          > 
+          github
+          </Link></h2>
+          <h2>
+          <Link
+            href={'https://boosty.to/1dexx1'}
+            class="text-foreground"
+            underline
+            external
+          > 
+          boosty
+          </Link></h2>
+          <h2>
+          <Link
+            href={'https://steamcommunity.com/id/1dexx1'}
+            class="text-foreground"
+            underline
+            external
+          > 
+          steam
+          </Link></h2>
+          <br>
+          nelsoni:
+          <h2>
             <Link
-              href={'https://discord.com/users/999589862158114848'}
+              href={'https://discord.com/users/802521064059305984'}
+              class="text-foreground"
+            underline
+            external
             > 
             discord
             </Link></h2>
-            <br>
-          </p>
-        </div>
+        </p>
       </div>
-    </section>
-  </Container>
+    </div>
+  </section>
 </Layout>

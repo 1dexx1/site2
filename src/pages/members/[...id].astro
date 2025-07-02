@@ -2,65 +2,57 @@
 import MemberCard from '@/components/MemberCard.astro'
 import BlogCard from '@/components/BlogCard.astro'
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
-import Container from '@/components/Container.astro'
+import PageHead from '@/components/PageHead.astro'
 import Layout from '@/layouts/Layout.astro'
-import { type CollectionEntry, getCollection } from 'astro:content'
+import { getAllMembers, getPostsByMember } from '@/lib/data-utils'
 
 export async function getStaticPaths() {
-  const member = await getCollection('members')
-  return member.map((member) => ({
+  const members = await getAllMembers()
+  return members.map((member) => ({
     params: { id: member.id },
     props: { member },
   }))
 }
 
-type Props = {
-  member: CollectionEntry<'members'>
-}
-
 const { member } = Astro.props
-
-const allPosts = await getCollection('blog')
-const memberPosts = allPosts
-  .filter((post) => {
-    return post.data.members && post.data.members.includes(member.id)
-  })
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+const memberPosts = await getPostsByMember(member.id)
 ---
 
-<div class="col-start-1 col-span-7 md:col-span-2 md:row-span-4 md:row-start-4 bg-[#171717]  p-5">
-<Layout
-  title={`${member.data.name} (учасники)`}
-  description={member.data.bio || `Profile of ${member.data.name}.`}
->
-  <Container class="flex flex-col gap-y-6">
-    <Breadcrumbs
-      items={[
-        { href: '/members', label: 'учасники', icon: 'lucide:users' },
-        { label: member.data.name, icon: 'lucide:user' },
-      ]}
-    />
+<Layout class="max-w-3xl">
+  <PageHead
+    slot="head"
+    title={`${member.data.name} (Member)`}
+    description={member.data.bio || `Profile of ${member.data.name}.`}
+    noindex
+  />
+  <Breadcrumbs
+    items={[
+      { href: '/members', label: 'участники', icon: 'lucide:users' },
+      { label: member.data.name, icon: 'lucide:user' },
+    ]}
+  />
 
-    <section>
-      <MemberCard member={member} linkDisabled />
-    </section>
-    <section class="flex flex-col gap-y-4">
-      <h2 class="text-2xl font-semibold">посты с участием {member.data.name}</h2>
-      {
-        memberPosts.length > 0 ? (
-          <ul class="not-prose flex flex-col gap-4">
-            {memberPosts.filter(post => !post.data.draft).map((post) => (
+  <section>
+    <MemberCard member={member} />
+  </section>
+  <section class="flex flex-col gap-y-4">
+    <h2 class="text-2xl font-medium">посты с участием {member.data.name}</h2>
+    {
+      memberPosts.length > 0 ? (
+        <ul class="flex flex-col gap-4">
+          {memberPosts
+            .filter((post) => !post.data.draft)
+            .map((post) => (
               <li>
                 <BlogCard entry={post} />
               </li>
             ))}
-          </ul>
-        ) : (
-          <p class="text-muted-foreground">
-            нет постов с этим пользователем.
-          </p>
-        )
-      }
-    </section>
-  </Container>
+        </ul>
+      ) : (
+        <p class="text-muted-foreground">
+          нету постов с участием этого участника.
+        </p>
+      )
+    }
+  </section>
 </Layout>

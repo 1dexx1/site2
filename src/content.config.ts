@@ -5,65 +5,31 @@ const blog = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
   schema: ({ image }) =>
     z.object({
-      title: z
-        .string()
-        .max(
-          60,
-          'Title should be 60 characters or less for optimal Open Graph display.',
-        ),
-      description: z
-        .string()
-        .max(
-          155,
-          'Description should be 155 characters or less for optimal Open Graph display.',
-        ),
+      title: z.string(),
+      description: z.string(),
       date: z.coerce.date(),
-      image: image().optional().optional(),
+      order: z.number().optional(),
+      image: image().optional(),
       tags: z.array(z.string()).optional(),
-      authors: z.array(z.string()).optional().optional(),
-      members: z.array(z.string()).optional().optional(),
+      authors: z.array(z.string()).optional(),
+      members: z.array(z.string()).optional(),
       draft: z.boolean().optional(),
     }),
 })
-
-const vilki = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
-  schema: ({ image }) =>
-    z.object({
-      title: z
-        .string()
-        .max(
-          60,
-          'Title should be 60 characters or less for optimal Open Graph display.',
-        ),
-      description: z
-        .string()
-        .max(
-          155,
-          'Description should be 155 characters or less for optimal Open Graph display.',
-        ),
-      date: z.coerce.date(),
-      image: image().optional().optional(),
-      tags: z.array(z.string()).optional(),
-      authors: z.array(z.string()).optional().optional(),
-      members: z.array(z.string()).optional().optional(),
-      draft: z.boolean().optional(),
-    }),
-})
-
 
 const authors = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/authors' }),
   schema: z.object({
     name: z.string(),
     pronouns: z.string().optional(),
-    avatar: z.string().url(),
+    avatar: z.string().url().or(z.string().startsWith('/')),
     bio: z.string().optional(),
     mail: z.string().email().optional(),
     website: z.string().url().optional(),
     twitter: z.string().url().optional(),
     github: z.string().url().optional(),
     linkedin: z.string().url().optional(),
+    discord: z.string().url().optional(),
   }),
 })
 
@@ -72,13 +38,14 @@ const members = defineCollection({
   schema: z.object({
     name: z.string(),
     pronouns: z.string().optional(),
-    avatar: z.string().url(),
+    avatar: z.string().url().or(z.string().startsWith('/')),
     bio: z.string().optional(),
     mail: z.string().email().optional(),
     website: z.string().url().optional(),
     twitter: z.string().url().optional(),
     github: z.string().url().optional(),
     linkedin: z.string().url().optional(),
+    discord: z.string().url().optional(),
   }),
 })
 
@@ -90,9 +57,12 @@ const projects = defineCollection({
       description: z.string(),
       tags: z.array(z.string()),
       image: image(),
-      link: z.string().url().optional(),
+      link: z.string().url(),
+      startDate: z.coerce.date().optional(),
+      endDate: z.coerce.date().optional(),
     }),
 })
+
 const myprojects = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/myprojects' }),
   schema: ({ image }) =>
@@ -101,7 +71,9 @@ const myprojects = defineCollection({
       description: z.string(),
       tags: z.array(z.string()),
       image: image(),
-      link: z.string().url().optional(),
+      link: z.string().url(),
+      startDate: z.coerce.date().optional(),
+      endDate: z.coerce.date().optional(),
     }),
 })
 
